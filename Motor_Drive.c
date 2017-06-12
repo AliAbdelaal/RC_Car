@@ -14,19 +14,19 @@ void Motor_init()
 	//init the pins as output
 	GPIO_Init(MOTOR_PORT, motor_mask, OUTPUT, NONE);
 }
-void Motor_forward()
+void Motor_left()
 {
 	GPIO_Write(MOTOR_PORT, motor_mask, (1 << M1 | 1 << M3));
 }
-void Motor_backward()
+void Motor_right()
 {
 	GPIO_Write(MOTOR_PORT, motor_mask, (1 << M2 | 1 << M4));
 }
-void Motor_left()
+void Motor_forward()
 {
 	GPIO_Write(MOTOR_PORT, motor_mask, (1 << M1 | 1 << M4));
 }
-void Motor_right()
+void Motor_backward()
 {
 	GPIO_Write(MOTOR_PORT, motor_mask, (1 << M2 | 1 << M3));
 }

@@ -17,7 +17,7 @@
 //prototypes needed
 void delayUs(int time);
 void delayMs(int time);
-void enableTrigger(void);
+void triggerEnable(void);
 void sendCommand(uint8_t cmd);
 
 /*	initialize the lcd pins
@@ -94,11 +94,11 @@ void LCD_displayChar(char character)
 
 	//send the high nibble
 	GPIO_Write(DATA_PORT, DATA_MASK, highNibble);
-	enableTrigger();
+	triggerEnable();
 
 	//send the low nibble
 	GPIO_Write(DATA_PORT, DATA_MASK, lowNibble);
-	enableTrigger();
+	triggerEnable();
 
 }
 
@@ -143,11 +143,11 @@ void sendCommand(uint8_t cmd)
 
 	//send the high nibble
 	GPIO_Write(DATA_PORT, DATA_MASK, highNibble);
-	enableTrigger();
+	triggerEnable();
 
 	//send the low nibble
 	GPIO_Write(DATA_PORT, DATA_MASK, lowNibble);
-	enableTrigger();
+	triggerEnable();
 
 }
 
@@ -165,7 +165,7 @@ void delayMs(int time)
 }
 
 //the trigger is needed by the LCD
-void enableTrigger()
+void triggerEnable()
 {
 	CLEAR_BIT(CMD_PORT, EN_PIN);
 	delayUs(500);

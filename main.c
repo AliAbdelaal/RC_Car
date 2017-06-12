@@ -19,11 +19,13 @@
 #include "UART.h"
 int main()
 {
+
 	//initialize the modules
-	LCD_init();
-	Motor_init();
 	UART_init();
+	Motor_init();
+	LCD_init();
 	//start the motor at stop condition and LCD at welcome message
+	LCD_clearScreen();
 	LCD_displayString("Welcome!");
 	Motor_stop();
 	while (1)
@@ -33,30 +35,35 @@ int main()
 		data = UART_read();
 		switch (data)
 		{
-		case 's':
+		case 'S':
 			LCD_clearScreen();
 			LCD_displayString("stop!");
 			Motor_stop();
 			break;
-		case 'f':
+		case 'F':
 			LCD_clearScreen();
-			LCD_displayString("moving forward");
+			LCD_displayString("forward");
 			Motor_forward();
 			break;
-		case 'b':
+		case 'B':
 			LCD_clearScreen();
-			LCD_displayString("moving backward");
+			LCD_displayString("backward");
 			Motor_backward();
 			break;
-		case 'l':
+		case 'L':
 			LCD_clearScreen();
-			LCD_displayString("moving left");
+			LCD_displayString("left");
 			Motor_left();
 			break;
-		case 'r':
+		case 'R':
 			LCD_clearScreen();
-			LCD_displayString("moving right");
+			LCD_displayString("right");
 			Motor_right();
+			break;
+		default:
+			LCD_clearScreen();
+			LCD_displayString("error !");
+			Motor_stop();
 			break;
 		}
 

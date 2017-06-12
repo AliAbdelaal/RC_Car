@@ -25,7 +25,7 @@
 //configure your LCD pins here
 
 #define DATA_PORT	PB
-#define CMD_PORT	PB
+#define CMD_PORT	PC
 #define RS_PIN		0x00
 #define RW_PIN		0x01
 #define EN_PIN		0x02
@@ -45,9 +45,9 @@ void LCD_shiftDisplayRight(void);
 void LCD_displayChar(char character);
 //display a string on the LCD
 void LCD_displayString(char* string);
-//display an integer on the screen (maximume is 5 digits)
+//display an integer on the screen (maximum is 5 digits)
 void LCD_displayInt(int decimal);
-//display a float number on the screen (maximume is 5 digits)
+//display a float number on the screen (maximum is 5 digits)
 void LCD_displayFloat(float number);
 
 #endif /* LCD_H_ */

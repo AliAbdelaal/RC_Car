@@ -9,11 +9,11 @@
 #define MOTOR_DRIVE_H_
 
 // the pins connected to the motor
-#define MOTOR_PORT PC
-#define M1	0x00
-#define M2	0x01
-#define M3 	0x02
-#define M4	0x03
+#define MOTOR_PORT PD
+#define M1	0x04
+#define M2	0x05
+#define M3 	0x06
+#define M4	0x07
 
 void Motor_init();
 void Motor_forward();

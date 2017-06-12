@@ -29,17 +29,17 @@ void GPIO_Init(uint8_t PortName, uint8_t Mask, uint8_t Direction,
 		break;
 	}
 	//enable the pull_up resistor
-	if (Direction == OUTPUT && pull_up == PULL_UP_ENABLE)
+	if (Direction == INPUT && pull_up == PULL_UP_ENABLE)
 		switch (PortName)
 		{
 		case PB:
-			WRITE_REG(DDRB, OUTPUT, Mask);
+			WRITE_REG(PORTB, OUTPUT, Mask);
 			break;
 		case PC:
-			WRITE_REG(DDRC, OUTPUT, Mask);
+			WRITE_REG(PORTC, OUTPUT, Mask);
 			break;
 		case PD:
-			WRITE_REG(DDRD, OUTPUT, Mask);
+			WRITE_REG(PORTD, OUTPUT, Mask);
 			break;
 		}
 
